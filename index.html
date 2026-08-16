@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sriram | Macroeconomics and Business Cycles</title>
+
+<!-- ============================================================
+     EDIT ME FIRST
+     1. Replace every [bracketed placeholder] in the body below.
+     2. Swap the photo: put a square image next to this file and
+        change the <img> src in the About section.
+     3. Drop your CV in as cv.pdf next to this file.
+     4. Delete any section you don't need (nav link + <section>).
+     ============================================================ -->
+
+<meta name="description" content="Sriram — Madras School of Economics graduate, incoming MSc Economics (Two-Year) at LSE. Research interests in macroeconomics, business cycles, and machine-learning methods.">
+<meta name="author" content="Sriram">
+<meta property="og:title" content="Sriram | Macroeconomics and Business Cycles">
+<meta property="og:description" content="MSE graduate, incoming MSc Economics (Two-Year) at LSE. Macroeconomics, business cycles, machine-learning methods.">
+<meta property="og:type" content="profile">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..600;1,6..72,300..500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#FAFAF8;
+  --ink:#12161B;
+  --muted:#5C6570;
+  --rule:#E2E1DC;
+  --blue:#12405E;
+  --band:#E8EDF1;
+  --serif:"Newsreader",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.65;
+  font-weight:350;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(18,64,94,.28)}
+a:hover{border-bottom-color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+
+/* ---------- layout ---------- */
+.wrap{display:block}
+.rail{
+  position:sticky;top:0;z-index:20;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  padding:14px 20px;
+}
+.rail .who{display:flex;align-items:baseline;gap:12px;margin-bottom:10px}
+.rail .who b{font-weight:400;font-size:19px;letter-spacing:.01em}
+.rail .who a.cv{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:none}
+nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0 0 2px;overflow-x:auto;scrollbar-width:none}
+nav ul::-webkit-scrollbar{display:none}
+nav a{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);border:none;white-space:nowrap;padding-bottom:3px;
+  border-bottom:1.5px solid transparent;
+}
+nav a:hover{color:var(--ink)}
+nav a.on{color:var(--ink);border-bottom-color:var(--blue)}
+
+main{max-width:720px;margin:0 auto;padding:0 20px 120px}
+
+/* ---------- hero ---------- */
+.hero{padding:56px 0 34px}
+.hero h1{
+  font-size:clamp(38px,7vw,58px);font-weight:200;letter-spacing:-.015em;
+  margin:0 0 10px;line-height:1.05;
+}
+.hero .sub{font-size:19px;color:var(--muted);font-style:italic;margin:0 0 30px}
+.cycle{width:100%;height:auto;display:block}
+.cycle-cap{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted);
+  margin-top:8px;text-transform:uppercase;
+}
+
+/* ---------- sections ---------- */
+section{padding:44px 0;border-top:1px solid var(--rule)}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 22px;
+}
+h2{font-size:28px;font-weight:300;letter-spacing:-.01em;margin:0 0 18px}
+h3{font-size:19px;font-weight:400;margin:0 0 4px}
+p{margin:0 0 16px}
+p:last-child{margin-bottom:0}
+
+/* ---------- about ---------- */
+.about-top{display:flex;gap:26px;align-items:flex-start;margin-bottom:26px;flex-wrap:wrap}
+.portrait{
+  width:132px;height:170px;flex:0 0 auto;object-fit:cover;
+  background:var(--band);border:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:10px;color:var(--muted);text-align:center;
+}
+.facts{flex:1 1 260px;min-width:240px}
+.facts dl{display:grid;grid-template-columns:auto 1fr;gap:5px 16px;margin:0;font-size:15.5px}
+.facts dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:5px}
+.facts dd{margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+.tag{
+  font-family:var(--mono);font-size:11px;letter-spacing:.04em;
+  border:1px solid var(--rule);background:#fff;padding:4px 9px;color:var(--muted);
+}
+
+/* ---------- entries ---------- */
+.entry{padding:18px 0;border-bottom:1px solid var(--rule)}
+.entry:last-child{border-bottom:none;padding-bottom:0}
+.entry .meta{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:7px}
+.entry .where{color:var(--muted);font-size:15.5px;margin:0 0 8px}
+.entry ul{margin:8px 0 0;padding-left:18px;font-size:16px}
+.entry li{margin-bottom:6px}
+
+details{border-top:1px solid var(--rule);padding:11px 0}
+details:first-of-type{border-top:none}
+summary{
+  cursor:pointer;list-style:none;display:flex;gap:12px;align-items:baseline;
+  font-size:16.5px;
+}
+summary::-webkit-details-marker{display:none}
+summary .code{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:.05em;min-width:64px}
+summary::after{content:"+";margin-left:auto;color:var(--muted);font-family:var(--mono);font-size:14px}
+details[open] summary::after{content:"–"}
+details p{margin:10px 0 4px 76px;font-size:15.5px;color:var(--muted)}
+@media (max-width:560px){details p{margin-left:0}}
+
+/* ---------- placeholders ---------- */
+.todo{color:#9A7B2E;border-bottom:1px dotted #C7A94F}
+
+footer{
+  border-top:1px solid var(--rule);padding:26px 0;
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;text-transform:uppercase;
+}
+footer a{border:none;color:var(--muted)}
+
+/* ---------- desktop rail ---------- */
+@media (min-width:1040px){
+  .wrap{display:grid;grid-template-columns:250px 1fr;gap:0}
+  .rail{
+    position:sticky;top:0;height:100vh;border-bottom:none;border-right:1px solid var(--rule);
+    padding:56px 30px;display:flex;flex-direction:column;
+  }
+  .rail .who{flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:34px}
+  .rail .who b{font-size:23px;font-weight:300}
+  nav ul{flex-direction:column;gap:11px;overflow:visible}
+  nav a{border-bottom:none;border-left:1.5px solid transparent;padding:0 0 0 12px}
+  nav a.on{border-left-color:var(--blue)}
+  main{margin:0;padding:0 60px 140px 60px;max-width:760px}
+  .hero{padding-top:80px}
+}
+
+@media (prefers-reduced-motion:no-preference){
+  .cycle path.line{stroke-dasharray:1600;stroke-dashoffset:1600;animation:draw 2.2s ease-out .25s forwards}
+  .cycle rect{opacity:0;animation:fade .9s ease-out forwards}
+  .cycle rect:nth-of-type(2){animation-delay:1.0s}
+  .cycle rect:nth-of-type(3){animation-delay:1.3s}
+  .cycle rect:nth-of-type(4){animation-delay:1.6s}
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <header class="rail">
+    <div class="who">
+      <b>Sriram</b>
+      <a class="cv" href="cv.pdf">CV ↓</a>
+    </div>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#writing">Writing</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="hero">
+      <h1>Sriram</h1>
+      <p class="sub">Macroeconomics, business cycles, and machine-learning methods.</p>
+
+      <!-- signature: an illustrative cycle with recession-style shading -->
+      <svg class="cycle" viewBox="0 0 700 96" role="img" aria-label="Illustrative business cycle with shaded contraction bands">
+        <rect x="0" y="0" width="1" height="1" fill="none"></rect>
+        <rect x="96"  y="6" width="58" height="84" fill="var(--band)"></rect>
+        <rect x="300" y="6" width="42" height="84" fill="var(--band)"></rect>
+        <rect x="520" y="6" width="66" height="84" fill="var(--band)"></rect>
+        <line x1="0" y1="52" x2="700" y2="52" stroke="var(--rule)" stroke-width="1"></line>
+        <path class="line" d="M0,60 C40,34 70,28 100,40 C130,52 140,78 155,74 C180,68 200,36 240,30 C280,24 292,44 306,58 C320,72 332,76 344,70 C380,52 420,30 470,26 C500,24 515,34 528,50 C545,70 560,80 588,72 C630,60 665,38 700,30"
+              fill="none" stroke="var(--blue)" stroke-width="1.6" stroke-linecap="round"></path>
+      </svg>
+      <p class="cycle-cap">Shaded bands: contractions — illustrative</p>
+    </div>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about">
+      <p class="eyebrow">01 — About</p>
+
+      <div class="about-top">
+        <!-- Replace this div with: <img class="portrait" src="photo.jpg" alt="Sriram"> -->
+        <div class="portrait">photo.jpg</div>
+
+        <div class="facts">
+          <dl>
+            <dt>Now</dt>
+            <dd>MSc Economics (Two-Year), <a href="https://www.lse.ac.uk/">LSE</a> — 2026 to 2028</dd>
+            <dt>Before</dt>
+            <dd><span class="todo">[Degree]</span>, <a href="https://mse.ac.in/">Madras School of Economics</a> — <span class="todo">[years]</span></dd>
+            <dt>Based</dt>
+            <dd>Chennai, India → London, UK</dd>
+            <dt>Email</dt>
+            <dd><a href="mailto:you@example.com"><span class="todo">[your email]</span></a></dd>
+            <dt>Links</dt>
+            <dd><a href="#"><span class="todo">[LinkedIn]</span></a> · <a href="#"><span class="todo">[GitHub]</span></a></dd>
+          </dl>
+        </div>
+      </div>
+
+      <p>I am an economist trained at the <a href="https://mse.ac.in/">Madras School of Economics</a>, starting the two-year MSc Economics at the <a href="https://www.lse.ac.uk/">London School of Economics</a> in September 2026. My interests sit in macroeconomics — how aggregate fluctuations propagate, and how much of the cycle we can actually identify from the data we have.</p>
+
+      <p>Most of my work so far has been on the empirical side of that question: time-series econometrics, unit roots and cointegration, ARMA and VAR models, spectral methods, and the estimation problems that come with them. More recently I have been moving toward machine-learning methods — working through Murphy's <em>Probabilistic Machine Learning</em> and closing the gap between writing Python and writing models — because a lot of the interesting macro-data questions are now high-dimensional ones.</p>
+
+      <p>I also read mathematics for its own sake. I taught myself complex analysis from Churchill and Brown, and spent a month in 2026 reading around the Riemann Hypothesis and writing up what I understood, from the Euler product through to the functional equation. <span class="todo">[Add a line about what you do outside work — sport, music, whatever you'd want a reader to know.]</span></p>
+
+      <div class="tags">
+        <span class="tag">Macroeconomics</span>
+        <span class="tag">Business Cycles</span>
+        <span class="tag">Time-Series Econometrics</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Monetary Policy</span>
+      </div>
+    </section>
+
+    <!-- ================= RESEARCH ================= -->
+    <section id="research">
+      <p class="eyebrow">02 — Research</p>
+      <h2>Work in progress</h2>
+      <p>Short descriptions of what each project asks, what data it uses, and where it currently stands. Replace these with your own; delete the ones you don't need.</p>
+
+      <div class="entry">
+        <p class="meta">In progress · <span class="todo">[year]</span></p>
+        <h3><span class="todo">[Project title]</span></h3>
+        <p class="where"><span class="todo">[One line: the question this asks.]</span></p>
+        <ul>
+          <li><span class="todo">[Method — model, identification strategy, estimator.]</span></li>
+          <li><span class="todo">[Data — source, frequency, coverage.]</span></li>
+          <li><span class="todo">[Status — draft, results pending, presented at X.]</span></li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <p class="meta">In progress · <span class="todo">[year]</span></p>
+        <h3><span class="todo">[Project title]</span></h3>
+        <p class="where"><span class="todo">[One line: the question this asks.]</span></p>
+        <ul>
+          <li><span class="todo">[Method.]</span></li>
+          <li><span class="todo">[Data.]</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= WRITING ================= -->
+    <section id="writing">
+      <p class="eyebrow">03 — Writing and notes</p>
+      <h2>Expository notes</h2>
+      <p>Notes written while learning something, shared as-is. They have not been refereed and should be checked against standard references.</p>
+
+      <div class="entry">
+        <p class="meta">July 2026 · ~14 pages</p>
+        <h3>An expository note on the Riemann Hypothesis</h3>
+        <p class="where">From the Euler product through analytic continuation, the Gamma function, the completed zeta function and its functional equation, the zero-free line at Re(s) = 1, and the link between RH and the Prime Number Theorem. Written after a month of self-study; intended for readers with a real-analysis background.</p>
+        <p><a href="riemann_note.pdf">Open the note ↓</a> <span class="todo">[upload the PDF next to this file]</span></p>
+      </div>
+
+      <div class="entry">
+        <p class="meta"><span class="todo">[date]</span></p>
+        <h3><span class="todo">[Second note or article]</span></h3>
+        <p class="where"><span class="todo">[Two lines on what it covers and who it's for.]</span></p>
+      </div>
+    </section>
+
+    <!-- ================= EDUCATION ================= -->
+    <section id="education">
+      <p class="eyebrow">04 — Education</p>
+
+      <div class="entry">
+        <p class="meta">London, United Kingdom · 2026 to 2028</p>
+        <h3><a href="https://www.lse.ac.uk/">London School of Economics and Political Science</a></h3>
+        <p class="where">MSc Economics (Two-Year)</p>
+        <details>
+          <summary><span class="code">EC400</span> Introductory course in mathematics and statistics</summary>
+          <p><span class="todo">[Add the topics once term starts.]</span></p>
+        </details>
+        <details>
+          <summary><span class="code">[code]</span> <span class="todo">[Course name]</span></summary>
+          <p><span class="todo">[Two or three lines on what the course covered.]</span></p>
+        </details>
+      </div>
+
+      <div class="entry">
+        <p class="meta">Chennai, India · <span class="todo">[years]</span></p>
+        <h3><a href="https://mse.ac.in/">Madras School of Economics</a></h3>
+        <p class="where"><span class="todo">[Degree title]</span> · <span class="todo">[CGPA, if you want it here]</span></p>
+
+        <details>
+          <summary><span class="code">Time series</span> Time Series Analysis</summary>
+          <p>ARMA, ARIMA and VAR models. Unit roots and cointegration. Wiener–Kolmogorov prediction, spectral analysis. Implementation in Stata.</p>
+        </details>
+        <details>
+          <summary><span class="code">Metrics</span> Econometrics</summary>
+          <p>Limited dependent variable models — Tobit, probit, logit. Maximum likelihood estimation, likelihood-ratio and Lagrange-multiplier tests.</p>
+        </details>
+        <details>
+          <summary><span class="code">Stochastic</span> Stochastic Processes</summary>
+          <p>Markov chains, point processes, the functional central limit theorem, spectral representations.</p>
+        </details>
+        <details>
+          <summary><span class="code">Algebra</span> Linear Algebra and Linear Programming</summary>
+          <p>Vector spaces and eigendecomposition, basic feasible solutions, Kronecker products, duality.</p>
+        </details>
+        <details>
+          <summary><span class="code">Analysis</span> Real Analysis and Calculus</summary>
+          <p>Sequences and series, continuity and differentiability, Riemann integration, constrained optimisation.</p>
+        </details>
+        <details>
+          <summary><span class="code">Self-study</span> Complex Analysis</summary>
+          <p>Churchill and Brown, <em>Complex Variables and Applications</em>, through chapter 7: multivaluedness, branch cuts, Riemann surfaces, contour methods. Read independently alongside coursework.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section id="experience">
+      <p class="eyebrow">05 — Experience</p>
+
+      <div class="entry">
+        <p class="meta"><span class="todo">[Month year to month year]</span></p>
+        <h3><span class="todo">[Role title]</span></h3>
+        <p class="where"><span class="todo">[Organisation]</span> · <span class="todo">[Supervisor, if relevant]</span></p>
+        <ul>
+          <li><span class="todo">[What you built or estimated, and what came out of it.]</span></li>
+          <li><span class="todo">[Second bullet — method and tools.]</span></li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <p class="meta"><span class="todo">[Month year to month year]</span></p>
+        <h3><span class="todo">[Role title]</span></h3>
+        <p class="where"><span class="todo">[Organisation]</span></p>
+        <ul>
+          <li><span class="todo">[Bullet.]</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= TEACHING ================= -->
+    <!-- No teaching yet? Delete this whole section and its nav link. -->
+    <section id="teaching">
+      <p class="eyebrow">06 — Teaching</p>
+      <div class="entry">
+        <p class="meta"><span class="todo">[Term and year]</span></p>
+        <h3><span class="todo">[Course name]</span></h3>
+        <p class="where"><span class="todo">[Institution]</span> · under <span class="todo">[Instructor]</span></p>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact">
+      <p class="eyebrow">07 — Contact</p>
+      <h2>Get in touch</h2>
+      <p>The fastest way to reach me is email. I'm glad to hear from anyone working on business cycles, macro-time-series, or applied machine learning in economics — and from students at MSE thinking about the same route.</p>
+      <p><a href="mailto:you@example.com"><span class="todo">[your email]</span></a> · <a href="cv.pdf">CV (PDF)</a></p>
+    </section>
+
+    <footer>
+      <span>Sriram · Chennai, India</span>
+      <span>Updated <span class="todo">[month year]</span></span>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+// Highlight the section currently in view.
+const links = [...document.querySelectorAll('nav a')];
+const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(a => a.classList.remove('on'));
+      map.get(e.target.id)?.classList.add('on');
+    }
+  });
+}, { rootMargin: '-25% 0px -65% 0px' });
+document.querySelectorAll('section').forEach(s => io.observe(s));
+</script>
+</body>
+</html>
