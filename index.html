@@ -79,17 +79,33 @@ main > section.active{
 }
 
 /* ---------- hero (inside About) ---------- */
+.hero{
+  display:grid;grid-template-columns:1fr;gap:28px;
+  margin:0 0 34px;align-items:center;
+}
 .hero h1{
   font-size:clamp(32px,5vw,44px);font-weight:200;letter-spacing:-.015em;
-  margin:0 0 26px;line-height:1.06;
+  margin:0 0 22px;line-height:1.06;
 }
-.hero-img{
-  width:100%;display:block;aspect-ratio:4/3;object-fit:cover;
-  border:1px solid var(--rule);
+.degrees .degree{
+  font-size:21px;font-weight:600;line-height:1.3;letter-spacing:-.005em;
+  margin:0 0 14px;
 }
-.hero-cap{
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--muted);
-  margin:8px 0 30px;text-transform:uppercase;
+.degrees .degree:last-child{margin-bottom:0}
+.degrees .inst{
+  display:block;font-size:15.5px;font-weight:400;color:var(--muted);margin-top:3px;
+}
+.hero-fig{margin:0}
+.hero-fig img{
+  width:100%;height:auto;display:block;
+  mix-blend-mode:multiply; /* lets the white plot background take the page colour */
+}
+.hero-fig figcaption{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--muted);
+  margin-top:8px;line-height:1.5;
+}
+@media (min-width:760px){
+  .hero{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:36px}
 }
 
 /* ---------- section chrome ---------- */
@@ -141,10 +157,10 @@ p:last-child{margin-bottom:0}
     <nav aria-label="Sections">
       <ul>
         <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#writing">Writing</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#research">Research</a></li>
         <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#writing">Writing</a></li>
         <li><a href="Sriram_Rajagopalan_cv.pdf" download>CV ↓</a></li>
       </ul>
     </nav>
@@ -155,21 +171,25 @@ p:last-child{margin-bottom:0}
     <!-- ================= ABOUT ================= -->
     <section id="about">
       <div class="hero">
-        <h1>Sriram Rajagopalan</h1>
-        <img class="hero-img" src="hero.jpg" alt="Backwater and treeline at Adyar Eco Park, Chennai">
-        <p class="hero-cap">Adyar Eco Park, Chennai · 2026</p>
+        <div class="hero-text">
+          <h1>Sriram Rajagopalan</h1>
+          <div class="degrees">
+            <p class="degree">MSc Economics<span class="inst"><a href="https://www.lse.ac.uk/">London School of Economics</a>, 2026 to 2028</span></p>
+            <p class="degree">BA (Honours) Economics<span class="inst"><a href="https://mse.ac.in/">Madras School of Economics</a>, 2023 to 2026</span></p>
+          </div>
+        </div>
+        <figure class="hero-fig">
+          <img src="growthrate_real_gnp.png" alt="Quarterly growth rate of US real GNP, 1951 to 1984">
+          <figcaption>US real GNP growth, 1951–1984: the series behind my Hamilton (1989) replication</figcaption>
+        </figure>
       </div>
 
       <div class="facts">
         <dl>
-          <dt>Now</dt>
-          <dd>MSc Economics, <a href="https://www.lse.ac.uk/">LSE</a> · 2026 to 2028</dd>
-          <dt>Before</dt>
-          <dd>BA (Honours), <a href="https://mse.ac.in/">Madras School of Economics</a> · 2023 to 2026</dd>
           <dt>Based</dt>
           <dd>Chennai, India → London, UK</dd>
           <dt>Email</dt>
-          <dd><a href="mailto:s.rajagopalan@lse.ac.uk">s.rajagopalan@lse.ac.uk</a></dd>
+          <dd><a href="mailto:S.Rajagopalan@lse.ac.uk">S.Rajagopalan@lse.ac.uk</a></dd>
           <dt>Links</dt>
           <dd><a href="https://www.linkedin.com/in/sriram-r-263b0b3b3/">LinkedIn</a></dd>
         </dl>
@@ -186,46 +206,6 @@ p:last-child{margin-bottom:0}
       <p>In political philosophy, I have read Locke, Hobbes, and Rousseau. Some thoughts about democracy and Rousseau's views on it, while I was reading <em>The Social Contract</em>, prompted me to write a short essay on the subject.</p>
 
       <p>Outside academics, I grew up playing cricket, and I watch football every weekend. I support Tottenham Hotspur.</p>
-    </section>
-
-    <!-- ================= RESEARCH ================= -->
-    <section id="research">
-      <p class="eyebrow">Research</p>
-      <h2>Projects</h2>
-      <p>Projects undertaken during my undergrad at MSE.</p>
-
-      <div class="entry">
-        <p class="meta">Applied Econometrics · 2025</p>
-        <h3>Empirical validity of the Phillips curve in India</h3>
-        <p>Tests the inflation–unemployment relationship in India using national annual time-series and an unbalanced state-level panel (rural and urban, 2017–23). With Breusch–Pagan LM and F-tests both indicating no significant panel effects, the paper estimates pooled OLS with year dummies and state-clustered standard errors, alongside an expectations-augmented specification with lagged inflation. Finds no evidence of the Phillips curve — the unemployment coefficient stays positive and insignificant, with inflation instead driven by supply-side (year) shocks and inflation persistence.</p>
-      </div>
-
-      <div class="entry">
-        <p class="meta">Stochastic Processes · 2025</p>
-        <h3>Hamilton's regime-switching models</h3>
-        <p>A rigorous exposition of Markov-switching time-series models, working through the derivations from Neftçi (1984, <em>Journal of Political Economy</em>) and Goldfeld–Quandt (1973, <em>Journal of Econometrics</em>) to Hamilton (1989) — the finite-state Markov structure, the AR(1) representation of the latent regime, and the nonlinear filter and smoother. Implemented in Python to recover smoothed regime probabilities for US Real GNP.</p>
-      </div>
-    </section>
-
-    <!-- ================= WRITING ================= -->
-    <section id="writing">
-      <p class="eyebrow">Writing</p>
-      <h2>Notes and essays</h2>
-      <p>Independent expository work outside coursework. Both pieces are shared as-is and should be read as study material rather than as refereed output.</p>
-
-      <div class="entry">
-        <p class="meta">2026 · 16 pages · Mathematics</p>
-        <h3>Understanding the Riemann Hypothesis</h3>
-        <p>A step-by-step development, from the Euler product through analytic continuation, the Gamma function, the theta identity, and the completed zeta function and its functional equation, ending with the zero-free line Re(s) = 1 and an expository section linking the Riemann Hypothesis to the Prime Number Theorem. Written after independent study of complex analysis from Brown and Churchill, with Stein and Shakarchi as the main reference for the final two sections.</p>
-        <p><a href="Sriram_riemann_hypothesis.pdf" download>Download the note ↓</a></p>
-      </div>
-
-      <div class="entry">
-        <p class="meta">2026 · Political philosophy</p>
-        <h3>Rousseau and modern India: eight decades of a large democracy</h3>
-        <p>An essay set against Rousseau's argument in <em>The Social Contract</em> that democracy requires a small, homogeneous, virtuous people. India is none of these, and the piece argues that its Constitution and independent institutions have done work Rousseau did not foresee — while its civil service has behaved much as he warned an unaccountable administrative class would.</p>
-        <p><a href="https://sriram131132.substack.com/p/rousseau-and-modern-india-eight-decades?r=3ncw8m&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true">Open the essay ↓</a></p>
-      </div>
     </section>
 
     <!-- ================= EDUCATION ================= -->
@@ -331,6 +311,25 @@ p:last-child{margin-bottom:0}
       </div>
     </section>
 
+    <!-- ================= RESEARCH ================= -->
+    <section id="research">
+      <p class="eyebrow">Research</p>
+      <h2>Projects</h2>
+      <p>Projects undertaken during my undergrad at MSE.</p>
+
+      <div class="entry">
+        <p class="meta">Applied Econometrics · 2025</p>
+        <h3>Empirical validity of the Phillips curve in India</h3>
+        <p>Tests the inflation–unemployment relationship in India using national annual time-series and an unbalanced state-level panel (rural and urban, 2017–23). With Breusch–Pagan LM and F-tests both indicating no significant panel effects, the paper estimates pooled OLS with year dummies and state-clustered standard errors, alongside an expectations-augmented specification with lagged inflation. Finds no evidence of the Phillips curve — the unemployment coefficient stays positive and insignificant, with inflation instead driven by supply-side (year) shocks and inflation persistence.</p>
+      </div>
+
+      <div class="entry">
+        <p class="meta">Stochastic Processes · 2025</p>
+        <h3>Hamilton's regime-switching models</h3>
+        <p>A rigorous exposition of Markov-switching time-series models, working through the derivations from Neftçi (1984, <em>Journal of Political Economy</em>) and Goldfeld–Quandt (1973, <em>Journal of Econometrics</em>) to Hamilton (1989) — the finite-state Markov structure, the AR(1) representation of the latent regime, and the nonlinear filter and smoother. Implemented in Python to recover smoothed regime probabilities for US Real GNP.</p>
+      </div>
+    </section>
+
     <!-- ================= TEACHING ================= -->
     <section id="teaching">
       <p class="eyebrow">Teaching</p>
@@ -352,6 +351,27 @@ p:last-child{margin-bottom:0}
         <p class="meta">Jan – Apr 2026</p>
         <h3>Intermediate Macroeconomics</h3>
         <p>Lectured on theories such as rational and adaptive expectations; solved weekly problem sets ranging from differential equations to endogenous growth theory.</p>
+      </div>
+    </section>
+
+    <!-- ================= WRITING ================= -->
+    <section id="writing">
+      <p class="eyebrow">Writing</p>
+      <h2>Notes and essays</h2>
+      <p>Independent expository work outside coursework. Both pieces are shared as-is and should be read as study material rather than as refereed output.</p>
+
+      <div class="entry">
+        <p class="meta">2026 · 16 pages · Mathematics</p>
+        <h3>Understanding the Riemann Hypothesis</h3>
+        <p>A step-by-step development, from the Euler product through analytic continuation, the Gamma function, the theta identity, and the completed zeta function and its functional equation, ending with the zero-free line Re(s) = 1 and an expository section linking the Riemann Hypothesis to the Prime Number Theorem. Written after independent study of complex analysis from Brown and Churchill, with Stein and Shakarchi as the main reference for the final two sections.</p>
+        <p><a href="Sriram_riemann_hypothesis.pdf" download>Download the note ↓</a></p>
+      </div>
+
+      <div class="entry">
+        <p class="meta">2026 · Political philosophy</p>
+        <h3>Rousseau and modern India: eight decades of a large democracy</h3>
+        <p>An essay set against Rousseau's argument in <em>The Social Contract</em> that democracy requires a small, homogeneous, virtuous people. India is none of these, and the piece argues that its Constitution and independent institutions have done work Rousseau did not foresee — while its civil service has behaved much as he warned an unaccountable administrative class would.</p>
+        <p><a href="https://sriram131132.substack.com/p/rousseau-and-modern-india-eight-decades?r=3ncw8m&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true">Open the essay ↓</a></p>
       </div>
     </section>
 
